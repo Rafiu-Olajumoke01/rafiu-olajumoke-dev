@@ -10,6 +10,7 @@ const Mindset = lazy(() => import('./pages/Mindset/Mindset'));
 const Kanban = lazy(() => import('./pages/Kanban/Kanban'));
 const Journey = lazy(() => import('./pages/Journey/Journey'));
 
+
 function App() {
   return (
     <div className="App">
@@ -24,6 +25,7 @@ function App() {
               <Route path="/Mindset" element={<Mindset />} />
               <Route path="/Kanban" element={<Kanban />} />
               <Route path="/Journey" element={<Journey />} />
+             
 
             </Routes>
           {/* </Layout> */}

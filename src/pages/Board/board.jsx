@@ -6,6 +6,16 @@ import './board.css';
 function Board() {
   const [activeTab, setActiveTab] = useState('all');
   const [selectedProject, setSelectedProject] = useState(null);
+  const [showContactModal, setShowContactModal] = useState(false);
+
+  // Contact Information
+  const contactInfo = {
+    email: 'rafiuolajumoke7@gmail.com',
+    phone: '+234 808 379 0474',
+    linkedin: 'https://www.linkedin.com/in/rafiu-olajumoke-084374318?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+    github: 'https://github.com/Rafiu-Olajumoke01',
+    portfolio: 'https://github.com/Rafiu-Olajumoke01/MightyPortfolio'
+  };
 
   const stats = [
     { label: 'Projects Completed', value: '10', change: '+6 this year', trend: 'up' },
@@ -117,7 +127,6 @@ function Board() {
       githubUrl: 'https://github.com/Rafiu-Olajumoke01/fastfolderfrontend',
       features: ['Live Order Tracking', 'Real-time Updates', 'Payment Integration', 'Menu Management', 'Delivery Routing']
     },
-
     {
       id: 7,
       name: 'RemoteNg',
@@ -158,6 +167,15 @@ function Board() {
     setSelectedProject(null);
   };
 
+  const closeContactModal = () => {
+    setShowContactModal(false);
+  };
+
+  const copyToClipboard = (text) => {
+    navigator.clipboard.writeText(text);
+    alert('Copied to clipboard!');
+  };
+
   return (
     <div className="board-container">
       <div className="board-header">
@@ -166,8 +184,9 @@ function Board() {
           <p>Building solutions that solve real problems and create impact</p>
         </div>
         <div className="header-right">
-          <button className="btn-secondary">Export Portfolio</button>
-          <button className="btn-primary">Contact Me</button>
+          <button className="btn-primary" onClick={() => setShowContactModal(true)}>
+            💬 Contact Me
+          </button>
         </div>
       </div>
 
@@ -317,6 +336,115 @@ function Board() {
         </div>
       </div>
 
+      {/* Contact Modal */}
+      {showContactModal && (
+        <div className="modal-overlay" onClick={closeContactModal}>
+          <div className="modal-content contact-modal" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={closeContactModal}>✕</button>
+            
+            <div className="modal-header">
+              <div className="modal-icon">📧</div>
+              <div>
+                <h2>Let's Connect!</h2>
+                <p className="modal-tagline">I'm always open to discussing new projects and opportunities</p>
+              </div>
+            </div>
+
+            <div className="modal-body">
+              <div className="contact-grid">
+                <div className="contact-item">
+                  <div className="contact-icon">✉️</div>
+                  <div className="contact-details">
+                    <span className="contact-label">Email</span>
+                    <a href={`mailto:${contactInfo.email}`} className="contact-value">
+                      {contactInfo.email}
+                    </a>
+                    <button 
+                      className="copy-btn" 
+                      onClick={() => copyToClipboard(contactInfo.email)}
+                    >
+                      Copy
+                    </button>
+                  </div>
+                </div>
+
+                <div className="contact-item">
+                  <div className="contact-icon">📱</div>
+                  <div className="contact-details">
+                    <span className="contact-label">Phone</span>
+                    <a href={`tel:${contactInfo.phone}`} className="contact-value">
+                      {contactInfo.phone}
+                    </a>
+                    <button 
+                      className="copy-btn" 
+                      onClick={() => copyToClipboard(contactInfo.phone)}
+                    >
+                      Copy
+                    </button>
+                  </div>
+                </div>
+
+                <div className="contact-item">
+                  <div className="contact-icon">💼</div>
+                  <div className="contact-details">
+                    <span className="contact-label">LinkedIn</span>
+                    <a 
+                      href={contactInfo.linkedin} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="contact-value"
+                    >
+                      View Profile
+                    </a>
+                  </div>
+                </div>
+
+                <div className="contact-item">
+                  <div className="contact-icon">💻</div>
+                  <div className="contact-details">
+                    <span className="contact-label">GitHub</span>
+                    <a 
+                      href={contactInfo.github} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="contact-value"
+                    >
+                      View Projects
+                    </a>
+                  </div>
+                </div>
+
+                <div className="contact-item">
+                  <div className="contact-icon">🌐</div>
+                  <div className="contact-details">
+                    <span className="contact-label">Portfolio</span>
+                    <a 
+                      href={contactInfo.portfolio} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="contact-value"
+                    >
+                      Visit Website
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="contact-cta">
+                <p>Prefer email? Send me a message directly:</p>
+                <a 
+                  href={`mailto:${contactInfo.email}?subject=Portfolio Inquiry`}
+                  className="btn-modal primary"
+                >
+                  Send Email
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Project Modal */}
       {selectedProject && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
