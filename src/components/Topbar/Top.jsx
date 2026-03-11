@@ -1,44 +1,63 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import './top.css';
+import { useNavigate } from 'react-router-dom';
+import './top.css'
 
 function Top({ isSidebarOpen, setIsSidebarOpen }) {
-    // const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="header-bar">
-      <div className="logo">
-        <button 
-          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+    <header className={`header-bar ${scrolled ? 'scrolled' : ''}`}>
+
+      {/* LEFT — Hamburger + Logo */}
+      <div className="header-left">
+        <button
+          onClick={setIsSidebarOpen}
           className="mobile-menu-btn"
           aria-label="Toggle menu"
         >
           {isSidebarOpen ? <FaTimes /> : <FaBars />}
         </button>
-        <h2>Dev <span>Jummy.</span></h2>
-      </div>
-      
-      <div className="searchcommand">
-        <input 
-          type="text" 
-          placeholder="Search projects, skills, or experiences..." 
-        />
-      </div>
-      
-      <div className="togglestatus">
-        <div className="theme">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/>
-          </svg>
-        </div>
-        
-        <div className="status">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-            <circle cx="8" cy="8" r="8"/>
-          </svg>
-          <span>Available</span>
+
+        <div className="logo" onClick={() => navigate('/home')}>
+          <div className="logo-icon">RO</div>
+          <div className="logo-text">
+            <span className="logo-name">Rafiu <span className="logo-accent">Olajumoke</span></span>
+            <span className="logo-sub">Fullstack Developer</span>
+          </div>
         </div>
       </div>
-    </div>
+
+      {/* CENTER — Search */}
+      <div className="header-center">
+        <div className="search-wrapper">
+          <svg className="search-icon" width="14" height="14" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
+          </svg>
+          <input
+            type="text"
+            placeholder="Search projects, skills..."
+            className="search-input"
+          />
+        </div>
+      </div>
+
+      {/* RIGHT — Status */}
+      <div className="header-right">
+        <div className="status-badge">
+          <span className="status-dot" />
+          <span className="status-text">Available for work</span>
+        </div>
+      </div>
+
+    </header>
   );
 }
 

@@ -1,115 +1,123 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaHome, FaTasks, FaBrain, FaUserAlt, FaTools } from 'react-icons/fa';
-import { SiReact, SiNodedotjs, SiMongodb, SiJavascript, SiCss3, SiGit } from 'react-icons/si';
+import { 
+  FaHome, FaTasks, FaBrain, FaUserAlt, FaTools,
+  FaGithub, FaLinkedin, FaEnvelope, FaChevronRight
+} from 'react-icons/fa';
+import { SiReact, SiNodedotjs, SiMongodb, SiJavascript, SiPython, SiDjango } from 'react-icons/si';
 import './sidebar.css';
 
-// ✅ IMPORTANT: Now receives isOpen and onClose props!
 function Sidebar({ isOpen, onClose }) {
   const location = useLocation();
-  const [hoveredStack, setHoveredStack] = useState(null);
+  const [activeSkill, setActiveSkill] = useState(null);
 
   const navItems = [
-    { path: '/home', icon: FaHome, label: 'Home', badge: null },
-    { path: '/mindset', icon: FaBrain, label: 'Mindset', badge: 'unique' },
-    { path: '/kanban', icon: FaTasks, label: 'Kanban', badge: 'live' },
-    { path: '/arsenal', icon: FaTools, label: 'Arsenal', badge: null },
-    { path: '/journey', icon: FaUserAlt, label: 'Journey', badge: null }
+    { path: '/home',    icon: FaHome,    label: 'Dashboard',  desc: 'Overview & stats' },
+    { path: '/mindset', icon: FaBrain,   label: 'Mindset',    desc: 'How I think' },
+    { path: '/kanban',  icon: FaTasks,   label: 'Kanban',     desc: 'Task management' },
+    { path: '/arsenal', icon: FaTools,   label: 'Arsenal',    desc: 'Tools I use' },
+    { path: '/journey', icon: FaUserAlt, label: 'Journey',    desc: 'My story' },
   ];
 
-  const techStack = [
-    { name: 'React', icon: SiReact, color: '#61DAFB', level: 95 },
-    { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E', level: 90 },
-    { name: 'Node.js', icon: SiNodedotjs, color: '#339933', level: 85 },
-    { name: 'MongoDB', icon: SiMongodb, color: '#47A248', level: 80 },
-    { name: 'CSS', icon: SiCss3, color: '#1572B6', level: 92 },
-    { name: 'Git', icon: SiGit, color: '#F05032', level: 88 }
+  const skills = [
+    { name: 'React',      icon: SiReact,      color: '#61DAFB', level: 95 },
+    { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E', level: 92 },
+    { name: 'Node.js',    icon: SiNodedotjs,  color: '#3C873A', level: 85 },
+    { name: 'Python',     icon: SiPython,     color: '#3776AB', level: 78 },
+    { name: 'Django',     icon: SiDjango,     color: '#092E20', level: 75 },
+    { name: 'MongoDB',    icon: SiMongodb,    color: '#47A248', level: 82 },
   ];
 
-  // ✅ Close sidebar when clicking on a link
-  const handleLinkClick = () => {
-    if (onClose) {
-      onClose();
-    }
-  };
+  const socials = [
+    { icon: FaGithub,   href: 'https://github.com/Rafiu-Olajumoke01',  label: 'GitHub'   },
+    { icon: FaLinkedin, href: 'https://www.linkedin.com/in/rafiu-olajumoke-084374318', label: 'LinkedIn' },
+    { icon: FaEnvelope, href: 'mailto:rafiuolajumoke7@gmail.com',       label: 'Email'    },
+  ];
 
   return (
     <>
-      {/* ✅ Mobile Overlay - Click to close sidebar */}
-      {isOpen && (
-        <div 
-          className="sidebar-overlay" 
-          onClick={onClose}
-        />
-      )}
+      <div className={`sidebar-overlay ${isOpen ? 'active' : ''}`} onClick={onClose} />
 
-      {/* ✅ Sidebar - gets 'open' class when isOpen is true */}
-      <div className={`sidebar-container ${isOpen ? 'open' : ''}`}>
-        {/* Profile Section */}
+      <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
+
+        {/* ── PROFILE ── */}
         <div className="sidebar-profile">
-          <div className="profile-avatar">RO</div>
-          <h3 className="profile-name">Rafiu Olajumoke</h3>
-          <p className="profile-role">Fullstack Developer</p>
-          <div className="profile-status">
-            <span className="status-dot"></span>
-            <span>Available for work</span>
+          <div className="avatar-ring">
+            <div className="avatar">RO</div>
+            <span className="avatar-status" title="Available for work" />
+          </div>
+          <div className="profile-info">
+            <h3 className="profile-name">Rafiu Olajumoke</h3>
+            <p className="profile-role">Fullstack Developer</p>
+          </div>
+          <div className="profile-tagline">
+            <span className="tagline-icon">⚡</span>
+            <span>I turn problems into products</span>
+          </div>
+          <div className="profile-stats">
+            <div className="pstat">
+              <span className="pstat-num">7+</span>
+              <span className="pstat-label">Projects</span>
+            </div>
+            <div className="pstat-divider" />
+            <div className="pstat">
+              <span className="pstat-num">3+</span>
+              <span className="pstat-label">Years</span>
+            </div>
+            <div className="pstat-divider" />
+            <div className="pstat">
+              <span className="pstat-num">100%</span>
+              <span className="pstat-label">Satisfaction</span>
+            </div>
           </div>
         </div>
 
-        {/* Navigation Links */}
+        {/* ── NAVIGATION ── */}
         <nav className="sidebar-nav">
-          <h4 className="nav-title">Navigation</h4>
+          <p className="section-label">Navigation</p>
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = location.pathname === item.path;
-            
             return (
-              <Link 
+              <Link
                 key={item.path}
-                to={item.path} 
+                to={item.path}
                 className={`nav-item ${isActive ? 'active' : ''}`}
-                onClick={handleLinkClick}
+                onClick={onClose}
               >
-                <Icon className="nav-icon" />
-                <span className="nav-label">{item.label}</span>
-                {item.badge && (
-                  <span className={`nav-badge ${item.badge}`}>
-                    {item.badge === 'unique' ? '✨' : '🟢'}
-                  </span>
-                )}
+                <div className="nav-icon-wrap">
+                  <Icon className="nav-icon" />
+                </div>
+                <div className="nav-text">
+                  <span className="nav-label">{item.label}</span>
+                  <span className="nav-desc">{item.desc}</span>
+                </div>
+                <FaChevronRight className="nav-arrow" />
               </Link>
             );
           })}
         </nav>
 
-        {/* Tech Stack Section */}
-        <div className="sidebar-stack">
-          <h4 className="stack-title">Tech Arsenal</h4>
-          <div className="stack-list">
-            {techStack.map((tech, index) => {
-              const Icon = tech.icon;
-              const isHovered = hoveredStack === index;
-              
+        {/* ── SKILLS ── */}
+        <div className="sidebar-skills">
+          <p className="section-label">Tech Stack</p>
+          <div className="skills-grid">
+            {skills.map((skill, i) => {
+              const Icon = skill.icon;
+              const isActive = activeSkill === i;
               return (
-                <div 
-                  key={tech.name}
-                  className="stack-item"
-                  onMouseEnter={() => setHoveredStack(index)}
-                  onMouseLeave={() => setHoveredStack(null)}
+                <div
+                  key={skill.name}
+                  className={`skill-chip ${isActive ? 'active' : ''}`}
+                  onMouseEnter={() => setActiveSkill(i)}
+                  onMouseLeave={() => setActiveSkill(null)}
+                  style={{ '--skill-color': skill.color }}
                 >
-                  <div className="stack-info">
-                    <Icon className="stack-icon" style={{ color: tech.color }} />
-                    <span className="stack-name">{tech.name}</span>
-                  </div>
-                  {isHovered && (
-                    <div className="stack-level">
-                      <div className="level-bar">
-                        <div 
-                          className="level-fill" 
-                          style={{ width: `${tech.level}%`, backgroundColor: tech.color }}
-                        ></div>
-                      </div>
-                      <span className="level-text">{tech.level}%</span>
+                  <Icon className="skill-icon" style={{ color: skill.color }} />
+                  <span className="skill-name">{skill.name}</span>
+                  {isActive && (
+                    <div className="skill-bar-wrap">
+                      <div className="skill-bar" style={{ width: `${skill.level}%`, backgroundColor: skill.color }} />
                     </div>
                   )}
                 </div>
@@ -118,18 +126,28 @@ function Sidebar({ isOpen, onClose }) {
           </div>
         </div>
 
-        {/* Footer Stats */}
-        <div className="sidebar-footer">
-          <div className="footer-stat">
-            <span className="stat-number">24</span>
-            <span className="stat-label">Projects</span>
-          </div>
-          <div className="footer-stat">
-            <span className="stat-number">1.2K</span>
-            <span className="stat-label">Commits</span>
+        {/* ── AVAILABILITY CARD ── */}
+        <div className="availability-card">
+          <div className="avail-dot" />
+          <div className="avail-text">
+            <span className="avail-title">Open to opportunities</span>
+            <span className="avail-sub">Remote · Full-time · Contract</span>
           </div>
         </div>
-      </div>
+
+        {/* ── SOCIALS ── */}
+        <div className="sidebar-socials">
+          {socials.map((s) => {
+            const Icon = s.icon;
+            return (
+              <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="social-btn" title={s.label}>
+                <Icon />
+              </a>
+            );
+          })}
+        </div>
+
+      </aside>
     </>
   );
 }

@@ -78,11 +78,7 @@ export default function Mindset() {
 
   return (
     <div className="mindset-container-new">
-      {/* Hero Section */}
-      <Top
-        isSidebarOpen={isSidebarOpen}
-        setIsSidebarOpen={setIsSidebarOpen}
-      />
+     
       <div className="mindset-hero-new">
         <div className="hero-badge-new">
           <span className="badge-icon">🧠</span>

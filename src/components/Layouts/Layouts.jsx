@@ -1,28 +1,36 @@
-import React, { useState } from 'react';
-import Top from './../Topbar/Top';
-import Sidebar from './../Layouts/Layouts';
+import React, { useState, useCallback } from 'react';
+import { Outlet } from 'react-router-dom';
+import Top from '../Topbar/Top';
+import Sidebar from '../sidebar/Sidebar';
+import './layout.css';
 
-function Layout({ children }) {
+function Layout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
+  const toggleSidebar = useCallback(() => {
+    setIsSidebarOpen(prev => !prev);
+  }, []);
+
+  const closeSidebar = useCallback(() => {
+    setIsSidebarOpen(false);
+  }, []);
+
   return (
-    <>
-      <Top 
-        isSidebarOpen={isSidebarOpen} 
-        setIsSidebarOpen={setIsSidebarOpen} 
+    <div className='layout-main'>
+      <Top
+        isSidebarOpen={isSidebarOpen}
+        setIsSidebarOpen={toggleSidebar}
       />
-      
-      <div className="layout-container">
-        <Sidebar 
-          isOpen={isSidebarOpen} 
-          onClose={() => setIsSidebarOpen(false)} 
+      <div className="layout-body">
+        <Sidebar
+          isOpen={isSidebarOpen}
+          onClose={closeSidebar}
         />
-        
-        <div className="main-content">
-          {children}
+        <div className="layout-content">
+          <Outlet />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

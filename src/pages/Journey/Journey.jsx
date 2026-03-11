@@ -190,10 +190,6 @@ function Journey() {
 
   return (
     <div className="journey-container">
-      <Top
-        isSidebarOpen={isSidebarOpen}
-        setIsSidebarOpen={setIsSidebarOpen}
-      />
       <div className="journey-hero">
         <div className="hero-badge">My Development Journey</div>
         <h1 className="hero-title">

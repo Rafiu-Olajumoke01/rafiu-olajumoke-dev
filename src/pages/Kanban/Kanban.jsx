@@ -107,11 +107,7 @@ function Kanban() {
 
   return (
     <div className="kanban-page">
-      {/* <Top
-        isSidebarOpen={isSidebarOpen}
-        setIsSidebarOpen={setIsSidebarOpen}
-      /> */}
-      {/* Hero Section */}
+     
       <div className="kanban-hero">
         <h1>My Development Pipeline</h1>
         <p>

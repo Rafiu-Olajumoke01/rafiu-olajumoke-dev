@@ -19,6 +19,10 @@ function Landing() {
     '> Every challenge is an opportunity to build something better',
     '',
     '$ ls recent-projects/',
+    '> MyVisa App [In Progress]',
+    '> ├─ Real-life visa application platform',
+    '> ├─ Streamlines end-to-end visa applications',
+    '> └─ Built with Next.js & Django',
     '> Kanban Task Management System',
     '> ├─ Certified Frontend Mentor Challenge',
     '> ├─ Senior-level difficulty',
@@ -80,14 +84,14 @@ function Landing() {
           </div>
           <div className="terminal-title">olajumoke@portfolio:~</div>
         </div>
-        
+
         <div className="terminal-body">
           {lines.slice(0, currentLineIndex).map((line, index) => (
             <div key={index} className={`terminal-line ${line.startsWith('$') ? 'command' : line.startsWith('>') ? 'output' : 'empty'}`}>
               {line}
             </div>
           ))}
-          
+
           {currentLineIndex < lines.length && (
             <div className={`terminal-line ${lines[currentLineIndex].startsWith('$') ? 'command' : lines[currentLineIndex].startsWith('>') ? 'output' : 'empty'}`}>
               {displayedText}
