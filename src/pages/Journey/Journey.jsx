@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import Top from '../../components/Topbar/Top';
 import './Journey.css';
 
 function Journey() {
   const [activePhase, setActivePhase] = useState(null);
   const [selectedMilestone, setSelectedMilestone] = useState(null);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const journeyPhases = [
     {
