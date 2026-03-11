@@ -2,38 +2,38 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Landing.css';
 
+const lines = [
+  '$ cat developer.txt',
+  '> Name: Rafiu Olajumoke',
+  '> Role: Fullstack Developer (Heavy on Frontend)',
+  '',
+  '$ cat mindset.txt',
+  '> I solve critical problems in code',
+  '> Every challenge is an opportunity to build something better',
+  '',
+  '$ ls recent-projects/',
+  '> MyVisa App [In Progress]',
+  '> ├─ Real-life visa application platform',
+  '> ├─ Streamlines end-to-end visa applications',
+  '> └─ Built with Next.js & Django',
+  '> Kanban Task Management System',
+  '> ├─ Certified Frontend Mentor Challenge',
+  '> ├─ Senior-level difficulty',
+  '> └─ Built with React.js & modern best practices',
+  '',
+  '$ echo $MESSAGE',
+  '> Ready to turn complex problems into elegant solutions',
+  '',
+  '$ npm start',
+  '> Loading portfolio...',
+];
+
 function Landing() {
   const navigate = useNavigate();
   const [displayedText, setDisplayedText] = useState('');
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
   const [animationComplete, setAnimationComplete] = useState(false);
-
-  const lines = [
-    '$ cat developer.txt',
-    '> Name: Rafiu Olajumoke',
-    '> Role: Fullstack Developer (Heavy on Frontend)',
-    '',
-    '$ cat mindset.txt',
-    '> I solve critical problems in code',
-    '> Every challenge is an opportunity to build something better',
-    '',
-    '$ ls recent-projects/',
-    '> MyVisa App [In Progress]',
-    '> ├─ Real-life visa application platform',
-    '> ├─ Streamlines end-to-end visa applications',
-    '> └─ Built with Next.js & Django',
-    '> Kanban Task Management System',
-    '> ├─ Certified Frontend Mentor Challenge',
-    '> ├─ Senior-level difficulty',
-    '> └─ Built with React.js & modern best practices',
-    '',
-    '$ echo $MESSAGE',
-    '> Ready to turn complex problems into elegant solutions',
-    '',
-    '$ npm start',
-    '> Loading portfolio...',
-  ];
 
   useEffect(() => {
     if (currentLineIndex >= lines.length) {

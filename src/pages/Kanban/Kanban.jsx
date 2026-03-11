@@ -3,7 +3,7 @@ import './kanban.css';
 
 
 function Kanban() {
-  const [tasks, setTasks] = useState({
+  const [tasks] = useState({
     backlog: [
       {
         id: 1,
@@ -107,7 +107,7 @@ function Kanban() {
 
   return (
     <div className="kanban-page">
-     
+
       <div className="kanban-hero">
         <h1>My Development Pipeline</h1>
         <p>

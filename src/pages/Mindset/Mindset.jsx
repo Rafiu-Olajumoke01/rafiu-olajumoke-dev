@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import Top from '../../components/Topbar/Top';
 import './mindset.css';
 
 export default function Mindset() {
   const [selectedThought, setSelectedThought] = useState(null);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const thinkingProcess = [
     {
@@ -170,8 +168,6 @@ export default function Mindset() {
               When AgroStack helps a farmer get 30% better yields, that's not because I used React and Django.
               It's because I understood that farmers needed real-time market data to make better decisions.
             </p>
-
-
 
             <p>
               The difference between a developer and a problem solver? A developer asks "what can I build?"
