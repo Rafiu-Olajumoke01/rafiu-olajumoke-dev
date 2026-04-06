@@ -1,85 +1,114 @@
+/* ==============================
+   FONTS
+   ============================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-
-/* ===== DARK THEME ===== */
+/* ==============================
+   DARK THEME (default)
+   ============================== */
 :root {
-  --bg-primary: #0b0f14;
-  --bg-secondary: #111827;
-  /* cards / sections */
-  --bg-tertiary: #0f172a;
-  /* sidebar / panels */
+  --bg-primary:    #080808;   /* deepest black — page background       */
+  --bg-secondary:  #0f0f0f;   /* cards, sections                       */
+  --bg-tertiary:   #141414;   /* sidebar, panels, inner cards          */
 
-  --border-subtle: #1f2937;
-  /* soft borders */
+  --border-subtle: #1e1e1e;   /* soft borders                          */
+  --border-mid:    #2a2a2a;   /* slightly stronger borders             */
 
-  --text-primary: #e5e7eb;
-  /* main text */
-  --text-secondary: #9ca3af;
-  /* muted text */
+  --text-primary:   #f0f0f0;  /* main text                             */
+  --text-secondary: #6b6b6b;  /* muted text                            */
+  --text-tertiary:  #3d3d3d;  /* very muted                            */
 
-  --accent: #3b82f6;
-  /* blue accent */
-  --accent-soft: #1d4ed8;
-  /* hover / active */
+  --accent:      #FA014F;     /* hot pink — primary accent             */
+  --accent-soft: #c8003d;     /* darker pink — hover / active          */
+  --accent-glow: rgba(250, 1, 79, 0.15); /* glow for cards/effects    */
 
   --success: #22c55e;
+  --success-bg: rgba(34, 197, 94, 0.08);
+  --success-border: rgba(34, 197, 94, 0.2);
 }
 
-
-/* ===== LIGHT THEME ===== */
+/* ==============================
+   LIGHT THEME
+   ============================== */
 [data-theme="light"] {
-  --bg-primary: #f9fafb;
-  --bg-secondary: #ffffff;
-  --bg-tertiary: #f3f4f6;
+  --bg-primary:    #fafafa;
+  --bg-secondary:  #ffffff;
+  --bg-tertiary:   #f4f4f4;
 
-  --border-subtle: #e5e7eb;
+  --border-subtle: #e8e8e8;
+  --border-mid:    #d4d4d4;
 
-  --text-primary: #111827;
-  --text-secondary: #4b5563;
+  --text-primary:   #0a0a0a;
+  --text-secondary: #5a5a5a;
+  --text-tertiary:  #a0a0a0;
 
-  --accent: #2563eb;
-  --accent-soft: #1e40af;
+  --accent:      #FA014F;
+  --accent-soft: #c8003d;
+  --accent-glow: rgba(250, 1, 79, 0.08);
 
   --success: #16a34a;
+  --success-bg: rgba(22, 163, 74, 0.08);
+  --success-border: rgba(22, 163, 74, 0.2);
 }
 
- * {
-  transition: background-color 0.25s ease,
-    color 0.25s ease,
-    border-color 0.25s ease;
+/* ==============================
+   GLOBAL TRANSITIONS
+   ============================== */
+* {
+  box-sizing: border-box;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
+/* ==============================
+   BASE
+   ============================== */
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.6;
 }
 
+/* ==============================
+   SCROLLBAR
+   ============================== */
+::-webkit-scrollbar       { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-mid); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ==============================
+   SELECTION
+   ============================== */
+::selection {
+  background: rgba(250, 1, 79, 0.25);
+  color: var(--text-primary);
+}
+
+/* ==============================
+   LINKS
+   ============================== */
+a       { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-soft); }
+
+/* ==============================
+   CARD BASE
+   ============================== */
 .card {
   background-color: var(--bg-secondary);
   border: 1px solid var(--border-subtle);
   border-radius: 12px;
 }
-
-a,
-.button {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-a:hover,
-.button:hover {
-  color: var(--accent-soft);
-} 
