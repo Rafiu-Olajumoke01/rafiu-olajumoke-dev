@@ -4,82 +4,82 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 body {
-  margin: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+   margin: 0;
+   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 /* ==============================
    DARK THEME (default)
    ============================== */
 :root {
-  --bg-primary:    #080808;   /* deepest black — page background       */
-  --bg-secondary:  #0f0f0f;   /* cards, sections                       */
-  --bg-tertiary:   #141414;   /* sidebar, panels, inner cards          */
+   --bg-primary:    #080808;   /* deepest black — page background       */
+   --bg-secondary:  #0f0f0f;   /* cards, sections                       */
+   --bg-tertiary:   #141414;   /* sidebar, panels, inner cards          */
 
-  --border-subtle: #1e1e1e;   /* soft borders                          */
-  --border-mid:    #2a2a2a;   /* slightly stronger borders             */
+   --border-subtle: #1e1e1e;   /* soft borders                          */
+   --border-mid:    #2a2a2a;   /* slightly stronger borders             */
 
-  --text-primary:   #f0f0f0;  /* main text                             */
-  --text-secondary: #6b6b6b;  /* muted text                            */
-  --text-tertiary:  #3d3d3d;  /* very muted                            */
+   --text-primary:   #f0f0f0;  /* main text                             */
+   --text-secondary: #6b6b6b;  /* muted text                            */
+   --text-tertiary:  #3d3d3d;  /* very muted                            */
 
-  --accent:      #FA014F;     /* hot pink — primary accent             */
-  --accent-soft: #c8003d;     /* darker pink — hover / active          */
-  --accent-glow: rgba(250, 1, 79, 0.15); /* glow for cards/effects    */
+   --accent:      #6366f1;                  /* indigo — primary accent        */
+   --accent-soft: #4f46e5;                  /* darker indigo — hover / active */
+   --accent-glow: rgba(99, 102, 241, 0.15); /* glow for cards/effects         */
 
-  --success: #22c55e;
-  --success-bg: rgba(34, 197, 94, 0.08);
-  --success-border: rgba(34, 197, 94, 0.2);
+   --success: #22c55e;
+   --success-bg: rgba(34, 197, 94, 0.08);
+   --success-border: rgba(34, 197, 94, 0.2);
 }
 
 /* ==============================
    LIGHT THEME
    ============================== */
 [data-theme="light"] {
-  --bg-primary:    #fafafa;
-  --bg-secondary:  #ffffff;
-  --bg-tertiary:   #f4f4f4;
+   --bg-primary:    #fafafa;
+   --bg-secondary:  #ffffff;
+   --bg-tertiary:   #f4f4f4;
 
-  --border-subtle: #e8e8e8;
-  --border-mid:    #d4d4d4;
+   --border-subtle: #e8e8e8;
+   --border-mid:    #d4d4d4;
 
-  --text-primary:   #0a0a0a;
-  --text-secondary: #5a5a5a;
-  --text-tertiary:  #a0a0a0;
+   --text-primary:   #0a0a0a;
+   --text-secondary: #5a5a5a;
+   --text-tertiary:  #a0a0a0;
 
-  --accent:      #FA014F;
-  --accent-soft: #c8003d;
-  --accent-glow: rgba(250, 1, 79, 0.08);
+   --accent:      #6366f1;                  /* indigo — primary accent        */
+   --accent-soft: #4f46e5;                  /* darker indigo — hover / active */
+   --accent-glow: rgba(99, 102, 241, 0.15); /* glow for cards/effects         */
 
-  --success: #16a34a;
-  --success-bg: rgba(22, 163, 74, 0.08);
-  --success-border: rgba(22, 163, 74, 0.2);
+   --success: #16a34a;
+   --success-bg: rgba(22, 163, 74, 0.08);
+   --success-border: rgba(22, 163, 74, 0.2);
 }
 
 /* ==============================
    GLOBAL TRANSITIONS
    ============================== */
 * {
-  box-sizing: border-box;
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease,
-    border-color 0.2s ease;
+   box-sizing: border-box;
+   transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      border-color 0.2s ease;
 }
 
 /* ==============================
    BASE
    ============================== */
 body {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  line-height: 1.6;
+   background-color: var(--bg-primary);
+   color: var(--text-primary);
+   line-height: 1.6;
 }
 
 /* ==============================
@@ -94,8 +94,8 @@ body {
    SELECTION
    ============================== */
 ::selection {
-  background: rgba(250, 1, 79, 0.25);
-  color: var(--text-primary);
+   background: rgba(99, 102, 241, 0.25);
+   color: var(--text-primary);
 }
 
 /* ==============================
@@ -108,7 +108,7 @@ a:hover { color: var(--accent-soft); }
    CARD BASE
    ============================== */
 .card {
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-subtle);
-  border-radius: 12px;
+   background-color: var(--bg-secondary);
+   border: 1px solid var(--border-subtle);
+   border-radius: 12px;
 }

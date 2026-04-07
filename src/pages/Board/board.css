@@ -1,21 +1,24 @@
 /* ============================================================
    board.css  —  readable, sharp, software-engineer portfolio
    Fonts: Geist Mono (labels/code) + DM Sans (body/headings)
+   Accent: uses global --accent (indigo #6366f1) throughout
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Geist+Mono:wght@400;500;600&display=swap');
 
 /* ── Tokens ─────────────────────────────────────────────── */
 :root {
-  --red:        #FA014F;
-  --red-dim:    rgba(250, 1, 79, 0.08);
-  --red-border: rgba(250, 1, 79, 0.25);
-  --green:      #22c55e;
-  --green-dim:  rgba(34, 197, 94, 0.08);
-  --green-border: rgba(34, 197, 94, 0.2);
-  --amber:      #f59e0b;
-  --amber-dim:  rgba(245, 158, 11, 0.08);
-  --amber-border: rgba(245, 158, 11, 0.2);
+  --accent-dim:    rgba(99, 102, 241, 0.08);
+  --accent-border: rgba(99, 102, 241, 0.25);
+
+  --green:         #22c55e;
+  --green-dim:     rgba(34, 197, 94, 0.08);
+  --green-border:  rgba(34, 197, 94, 0.2);
+
+  --amber:         #f59e0b;
+  --amber-dim:     rgba(245, 158, 11, 0.08);
+  --amber-border:  rgba(245, 158, 11, 0.2);
+
   --mono: 'Geist Mono', 'IBM Plex Mono', monospace;
   --sans: 'DM Sans', -apple-system, sans-serif;
 
@@ -52,7 +55,7 @@
 .board-eyebrow {
   font-family: var(--mono);
   font-size: var(--fs-xs);
-  color: var(--red);
+  color: var(--accent);
   letter-spacing: 0.1em;
   margin: 0 0 0.75rem;
   text-transform: uppercase;
@@ -68,7 +71,7 @@
   color: var(--text-primary);
 }
 
-.board-title-accent { color: var(--red); }
+.board-title-accent { color: var(--accent); }
 
 .board-subtitle {
   font-family: var(--sans);
@@ -83,8 +86,8 @@
   font-size: var(--fs-xs);
   padding: 0.7rem 1.5rem;
   background: transparent;
-  border: 1px solid var(--red);
-  color: var(--red);
+  border: 1px solid var(--accent);
+  color: var(--accent);
   border-radius: 6px;
   cursor: pointer;
   letter-spacing: 0.06em;
@@ -94,9 +97,9 @@
 }
 
 .btn-contact:hover {
-  background: var(--red);
+  background: var(--accent);
   color: #fff;
-  box-shadow: 0 0 24px rgba(250, 1, 79, 0.2);
+  box-shadow: 0 0 24px var(--accent-glow);
 }
 
 /* ── Stats ──────────────────────────────────────────────── */
@@ -126,7 +129,7 @@
   font-family: var(--mono);
   font-size: 2.4rem;
   font-weight: 600;
-  color: var(--red);
+  color: var(--accent);
   letter-spacing: -2px;
   line-height: 1;
 }
@@ -174,7 +177,7 @@
 
 .board-tab:last-child { border-right: none; }
 .board-tab:hover { color: var(--text-primary); background: var(--bg-tertiary); }
-.board-tab.active { background: var(--red); color: #fff; }
+.board-tab.active { background: var(--accent); color: #fff; }
 
 /* ── Project grid ───────────────────────────────────────── */
 .projects-grid {
@@ -202,7 +205,7 @@
 
 .project-card--highlight {
   background: var(--bg-tertiary);
-  border-left: 2px solid var(--red);
+  border-left: 2px solid var(--accent);
 }
 
 .pc-top {
@@ -230,7 +233,7 @@
 }
 
 .status-done   { background: var(--green-dim);  color: var(--green);  border: 1px solid var(--green-border); }
-.status-wip    { background: var(--red-dim);    color: var(--red);    border: 1px solid var(--red-border); }
+.status-wip    { background: var(--accent-dim);  color: var(--accent);  border: 1px solid var(--accent-border); }
 .status-launch { background: var(--amber-dim);  color: var(--amber);  border: 1px solid var(--amber-border); }
 
 /* ── Card initials avatar ───────────────────────────────── */
@@ -238,15 +241,15 @@
   width: 44px;
   height: 44px;
   border-radius: 10px;
-  background: var(--red-dim);
-  border: 1px solid var(--red-border);
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-border);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--mono);
   font-size: var(--fs-xs);
   font-weight: 600;
-  color: var(--red);
+  color: var(--accent);
   margin-bottom: 1.1rem;
   letter-spacing: 0.04em;
 }
@@ -263,7 +266,7 @@
   transition: color 0.2s;
 }
 
-.project-card:hover .pc-name { color: var(--red); }
+.project-card:hover .pc-name { color: var(--accent); }
 
 .pc-tagline {
   font-family: var(--sans);
@@ -301,9 +304,9 @@
 }
 
 .pc-tech-more {
-  color: var(--red);
-  border-color: var(--red-border);
-  background: var(--red-dim);
+  color: var(--accent);
+  border-color: var(--accent-border);
+  background: var(--accent-dim);
 }
 
 /* ── Progress bar ───────────────────────────────────────── */
@@ -324,7 +327,7 @@
 
 .pc-progress-fill {
   height: 100%;
-  background: var(--red);
+  background: var(--accent);
   border-radius: 2px;
   transition: width 0.6s ease;
 }
@@ -358,7 +361,7 @@
 .pc-cta {
   font-family: var(--mono);
   font-size: var(--fs-xs);
-  color: var(--red);
+  color: var(--accent);
   opacity: 0;
   transform: translateX(-5px);
   transition: all 0.2s;
@@ -430,8 +433,8 @@
 }
 
 .modal-close:hover {
-  background: var(--red);
-  border-color: var(--red);
+  background: var(--accent);
+  border-color: var(--accent);
   color: white;
   transform: rotate(90deg);
 }
@@ -450,15 +453,15 @@
   width: 50px;
   height: 50px;
   border-radius: 10px;
-  background: var(--red-dim);
-  border: 1px solid var(--red-border);
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-border);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--mono);
   font-size: var(--fs-sm);
   font-weight: 600;
-  color: var(--red);
+  color: var(--accent);
   flex-shrink: 0;
 }
 
@@ -517,7 +520,7 @@
   font-weight: 400;
 }
 
-.problem-block  {
+.problem-block {
   padding: 1.1rem 1.25rem;
   background: var(--bg-tertiary);
   border-radius: 0 8px 8px 0;
@@ -528,7 +531,7 @@
   padding: 1.1rem 1.25rem;
   background: var(--bg-tertiary);
   border-radius: 0 8px 8px 0;
-  border-left: 2px solid var(--red);
+  border-left: 2px solid var(--accent);
 }
 
 .impact-block {
@@ -559,10 +562,10 @@
   font-family: var(--mono);
   font-size: var(--fs-xs);
   padding: 5px 12px;
-  background: var(--red-dim);
-  border: 1px solid var(--red-border);
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-border);
   border-radius: 20px;
-  color: var(--red);
+  color: var(--accent);
   font-weight: 500;
 }
 
@@ -574,9 +577,9 @@
   font-size: var(--fs-xs);
   padding: 4px 12px;
   border-radius: 5px;
-  background: var(--red-dim);
-  color: var(--red);
-  border: 1px solid var(--red-border);
+  background: var(--accent-dim);
+  color: var(--accent);
+  border: 1px solid var(--accent-border);
 }
 
 .modal-badge--muted {
@@ -608,7 +611,7 @@
 }
 
 .modal-btn--primary {
-  background: var(--red);
+  background: var(--accent);
   color: white;
   font-family: var(--mono);
   font-size: var(--fs-xs);
@@ -616,9 +619,9 @@
 }
 
 .modal-btn--primary:hover {
-  background: #c8003d;
+  background: var(--accent-soft);
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(250, 1, 79, 0.25);
+  box-shadow: 0 6px 20px var(--accent-glow);
 }
 
 .modal-btn--secondary {
@@ -631,8 +634,8 @@
 }
 
 .modal-btn--secondary:hover {
-  border-color: var(--red);
-  color: var(--red);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .modal-btn--disabled {
@@ -676,7 +679,7 @@
   transition: border-color 0.2s;
 }
 
-.contact-item:hover { border-color: var(--red-border); }
+.contact-item:hover { border-color: var(--accent-border); }
 
 .contact-label {
   font-family: var(--mono);
@@ -698,7 +701,7 @@
   word-break: break-all;
 }
 
-.contact-value:hover { color: var(--red); }
+.contact-value:hover { color: var(--accent); }
 
 .copy-btn {
   font-family: var(--mono);
@@ -714,9 +717,9 @@
 }
 
 .copy-btn:hover {
-  background: var(--red);
+  background: var(--accent);
   color: white;
-  border-color: var(--red);
+  border-color: var(--accent);
 }
 
 /* ── Responsive ─────────────────────────────────────────── */
