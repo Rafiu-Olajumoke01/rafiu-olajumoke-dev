@@ -5,9 +5,10 @@ import Layout from "./components/Layouts/Layouts";
 const Landing  = lazy(() => import('./pages/Landing/Landing'));
 const Home     = lazy(() => import('./pages/Home/home'));
 const Board    = lazy(() => import('./pages/Board/board'));
-const Mindset  = lazy(() => import('./pages/Mindset/Mindset'));
-const Kanban   = lazy(() => import('./pages/Kanban/Kanban'));
 const Journey  = lazy(() => import('./pages/Journey/Journey'));
+const Mindset  = lazy(() => import('./pages/Mindset/Mindset'));
+const Skill  = lazy(() => import('./pages/Skill/Skill'));
+const Kanban   = lazy(() => import('./pages/Kanban/Kanban'));
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
               <Route path="/mindset" element={<Mindset />} />
               <Route path="/kanban"  element={<Kanban />} />
               <Route path="/journey" element={<Journey />} />
+              <Route path="/skill" element={<Skill />} />
               {/* <Route path="/arsenal" element={<Arsenal />} /> */}
             </Route>
           </Routes>

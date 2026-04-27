@@ -6,15 +6,15 @@ function Kanban() {
   const [tasks] = useState({
     backlog: [
       {
-        id: 1,
-        title: 'Portfolio V2 Redesign',
-        description: 'Refresh portfolio with new animations and better UX',
-        priority: 'medium',
-        tags: ['Design', 'React'],
-        dueDate: 'Jan 2026'
+        id: 7,
+        title: 'Learning Management System',
+        description: 'LMS for online courses with video streaming',
+        priority: 'low',
+        tags: ['React', 'Video', 'API'],
+        dueDate: 'Mar 2026'
       },
       {
-        id: 2,
+        id: 8,
         title: 'E-commerce Platform for SMEs',
         description: 'Build affordable online store solution for small businesses',
         priority: 'high',
@@ -22,12 +22,12 @@ function Kanban() {
         dueDate: 'Feb 2026'
       },
       {
-        id: 3,
-        title: 'Learning Management System',
-        description: 'LMS for online courses with video streaming',
-        priority: 'low',
-        tags: ['React', 'Video', 'API'],
-        dueDate: 'Mar 2026'
+        id: 9,
+        title: 'Portfolio V2 Redesign',
+        description: 'Refresh portfolio with new animations and better UX',
+        priority: 'medium',
+        tags: ['Design', 'React'],
+        dueDate: 'Jan 2026'
       }
     ],
     inProgress: [
@@ -63,27 +63,51 @@ function Kanban() {
     ],
     done: [
       {
-        id: 7,
-        title: 'Chicken & Rice Food Ordering',
-        description: 'Complete food delivery platform with live tracking',
+        id: 1,
+        title: 'MyVisa — Ingress Travel',
+        description: '3-sided visa marketplace — agents list, admin approves, clients book. Solo full-stack build.',
+        priority: 'high',
+        tags: ['Next.js', 'Django', 'MySQL', 'WebRTC'],
+        completedDate: 'Live · ingress.travel'
+      },
+      {
+        id: 2,
+        title: 'LASOP Platform',
+        description: 'Digital attendance and course management for 500+ students',
+        priority: 'high',
+        tags: ['React', 'Node.js', 'MongoDB', 'JWT'],
+        completedDate: 'Live · lasop.net'
+      },
+      {
+        id: 3,
+        title: 'Kanban Task Management',
+        description: 'Senior-level drag & drop board with dark/light mode and full data persistence',
+        priority: 'medium',
+        tags: ['React', 'CSS', 'Local Storage'],
+        completedDate: 'Nov 2025'
+      },
+      {
+        id: 10,
+        title: 'AgroStack',
+        description: 'USSD-based agri platform connecting farmers to market prices, weather and buyers',
+        priority: 'high',
+        tags: ['React', 'Django', 'USSD'],
+        completedDate: 'Oct 2025'
+      },
+      {
+        id: 11,
+        title: 'Chicken & Rice',
+        description: 'Food delivery platform with live order tracking and real-time updates',
         priority: 'high',
         tags: ['React', 'Node.js', 'Socket.io'],
         completedDate: 'Nov 2025'
       },
       {
-        id: 8,
-        title: 'LASOP Attendance System',
-        description: 'Digital attendance and course management for 500+ students',
-        priority: 'high',
-        tags: ['React', 'MongoDB', 'Auth'],
-        completedDate: 'Oct 2025'
-      },
-      {
-        id: 9,
+        id: 12,
         title: 'Zenith Culinary Academy',
-        description: 'Online culinary school with video courses',
+        description: 'Online culinary school with video courses and certification system',
         priority: 'medium',
-        tags: ['React', 'Video', 'Payments'],
+        tags: ['React', 'Node.js', 'Video Streaming'],
         completedDate: 'Sep 2025'
       }
     ]

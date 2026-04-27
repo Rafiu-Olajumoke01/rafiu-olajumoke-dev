@@ -121,7 +121,7 @@ function Sidebar({ isOpen, onClose }) {
   const navItems = [
     { path: '/home',    icon: FaHome,    label: 'Home',       desc: 'Overview & projects' },
     { path: '/mindset', icon: FaBrain,   label: 'About',      desc: 'Who I am' },
-    { path: '/arsenal', icon: FaTools,   label: 'Skills',     desc: 'My tech arsenal' },
+    { path: '/skill',   icon: FaTools,   label: 'Skills',     desc: 'My tech skill' },
     { path: '/kanban',  icon: FaCode,    label: 'Projects',   desc: 'What I\'ve built' },
     { path: '/journey', icon: FaUserAlt, label: 'Experience', desc: 'My journey' },
   ];

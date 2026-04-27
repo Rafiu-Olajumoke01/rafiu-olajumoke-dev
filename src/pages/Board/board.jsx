@@ -15,28 +15,29 @@ function Board() {
     github:   'https://github.com/Rafiu-Olajumoke01',
   };
 
-  const stats = [
-    { label: 'Projects Shipped', value: '7+',  sub: '// real-world impact'  },
-    { label: 'Years Building',   value: '3+',  sub: '// since 2021'          },
-    { label: 'Client Rating',    value: '5.0', sub: '// avg across clients'  },
-    { label: 'Problems Solved',  value: '24+', sub: '// and counting'        },
-  ];
+  const flagship = {
+    id: 1, initials: 'MV',
+    name: 'MyVisa App',
+    tagline: 'Fiverr for visa services',
+    problem: 'Getting a visa is slow, confusing, and disconnected from real expert help. There was no single platform where visa agents could list their services and clients could simply browse, compare, and book.',
+    solution: 'Built a full-stack 3-sided marketplace — agents post their visa packages, admin reviews and approves them, clients browse and book. Solo build: frontend, backend, database, REST APIs, and deployment.',
+    impact: 'Covers student, tourist, and business visas. Live at ingress.travel. Solo full-stack build from zero to production.',
+    status: 'Live',
+    tech: ['Next.js', 'Django', 'MySQL', 'REST APIs', 'WebRTC'],
+    level: 'Expert', progress: 100, type: 'Full-Stack Solo Build',
+    liveUrl: 'https://ingress.travel',
+    githubUrl: 'https://github.com/Rafiu-Olajumoke01',
+    features: [
+      'Agent package listings',
+      'Admin approval workflow',
+      'Client browse & booking',
+      'Student · Tourist · Business visas',
+      'Full backend — Django & APIs',
+      'Deployment & DevOps solo',
+    ],
+  };
 
   const projects = [
-    {
-      id: 1, initials: 'MV',
-      name: 'MyVisa App',
-      tagline: 'End-to-end visa processing platform',
-      problem: 'Navigating international visa applications is slow, confusing, and disconnected from real human support.',
-      solution: 'Built a full-stack platform — frontend, backend, database, APIs, and deployment — entirely solo. Users tap a button and connect instantly to a live visa agent, Uber-style.',
-      impact: 'Covers student, tourist, and business visas. Mobile app launching imminently. Solo full-stack build from zero to production.',
-      image: null, status: 'Launching Soon',
-      tech: ['Next.js', 'Django', 'MySQL', 'REST APIs', 'WebRTC'],
-      level: 'Expert', progress: 95, type: 'Full-Stack Solo Build',
-      liveUrl: '', githubUrl: 'https://github.com/Rafiu-Olajumoke01',
-      features: ['Live agent calling (Uber-style)', 'End-to-end visa processing', 'Student · Tourist · Business', 'Full backend — Django & APIs', 'Deployment & DevOps solo', 'Mobile app in final dev'],
-      highlight: true,
-    },
     {
       id: 2, initials: 'LP',
       name: 'LASOP Platform',
@@ -129,54 +130,152 @@ function Board() {
   };
 
   const getStatusClass = (status) => {
-    if (status === 'Completed')      return 'status-done';
-    if (status === 'Launching Soon') return 'status-launch';
+    if (status === 'Completed') return 'status-done';
+    if (status === 'Live')      return 'status-live';
     return 'status-wip';
   };
 
   return (
     <div className="board-container">
 
-      {/* ── HEADER ── */}
+      {/* ── PAGE HEADER ── */}
       <div className="board-header">
         <div className="board-header-left">
-          <p className="board-eyebrow">// portfolio.projects</p>
+          <p className="board-eyebrow">// Rafiu Olajumoke · Full-Stack Engineer</p>
           <h1 className="board-title">
             Projects <span className="board-title-accent">&amp; Work</span>
           </h1>
-          <p className="board-subtitle">Problems solved · Products shipped · Impact delivered</p>
+          <p className="board-subtitle">3 years building · 7 shipped products · open to remote roles &amp; contracts</p>
         </div>
         <button className="btn-contact" onClick={() => setShowContactModal(true)}>
-          [ hire me → ]
+          hire me →
         </button>
       </div>
 
-      {/* ── STATS ── */}
-      <div className="stats-grid">
-        {stats.map((s, i) => (
-          <div key={i} className="stat-card">
-            <span className="stat-value">{s.value}</span>
-            <span className="stat-label">{s.label}</span>
-            <span className="stat-sub">{s.sub}</span>
+      {/* ── FLAGSHIP: MyVisa ── */}
+      <div className="flagship-card">
+
+        {/* top band */}
+        <div className="flagship-band">
+          <span className="flagship-live-dot" />
+          <span className="flagship-band-label">FLAGSHIP</span>
+          <span className="flagship-band-sep">·</span>
+          <span className="flagship-band-sub">ingress.travel</span>
+          <span className="flagship-status-badge">Live</span>
+        </div>
+
+        {/* body */}
+        <div className="flagship-body">
+          <p className="flagship-kicker">// solo full-stack build — zero to production</p>
+          <h2 className="flagship-name">
+            MyVisa — <span className="flagship-name-accent">Fiverr for visa services</span>
+          </h2>
+          <p className="flagship-desc">
+            A <strong>3-sided marketplace</strong> where visa agents post their packages,
+            admin reviews and approves, and clients browse and book.
+            Student, tourist, and business visas — all in one platform.{' '}
+            <strong>Built entirely alone.</strong>
+          </p>
+
+          {/* how it works flow */}
+          <div className="flagship-flow">
+            <div className="flow-node">
+              <span className="flow-role">Agent</span>
+              <span className="flow-desc">posts packages</span>
+            </div>
+            <span className="flow-arrow">→</span>
+            <div className="flow-node flow-node--accent">
+              <span className="flow-role">Admin</span>
+              <span className="flow-desc">reviews &amp; approves</span>
+            </div>
+            <span className="flow-arrow">→</span>
+            <div className="flow-node">
+              <span className="flow-role">Client</span>
+              <span className="flow-desc">browses &amp; books</span>
+            </div>
           </div>
-        ))}
+
+          {/* proof numbers */}
+          <div className="flagship-proof">
+            {[
+              ['1',    'developer'],
+              ['3',    'platform sides'],
+              ['6',    'technologies'],
+              ['100+', 'countries'],
+            ].map(([val, label]) => (
+              <div key={label} className="proof-chip">
+                <span className="proof-chip-val">{val}</span>
+                <span className="proof-chip-label">{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ── BUG STORY ── */}
+<div className="flagship-bug">
+  <p className="flagship-bug-label">// hardest_bug_i_solved</p>
+  <div className="flagship-bug-body">
+    <div className="flagship-bug-hrs">
+      72<small>hrs</small>
+    </div>
+    <div className="flagship-bug-text">
+      <p>
+        <strong>The WebRTC call kept dropping silently</strong> — no error, no log, just dead silence mid-session between agents and clients.
+      </p>
+      <p>
+        The bug had no error message, no log, nothing to grab onto. After hours of debugging, I found that when both users connected too close together in time, the call setup would collide with itself and drop dead.
+      </p>
+      <p className="flagship-bug-punch">
+        Fixed with a <em>timed offer/answer lock</em>. Calls have been stable ever since.
+      </p>
+    </div>
+  </div>
+</div>
+
+        {/* footer */}
+        <div className="flagship-footer">
+          <div className="flagship-tech">
+            {flagship.tech.map((t) => (
+              <span key={t} className="flagship-tech-tag">{t}</span>
+            ))}
+          </div>
+          <div className="flagship-actions">
+            <a
+              href={flagship.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flagship-btn-ghost"
+            >
+              live site
+            </a>
+            <button
+              className="flagship-btn-primary"
+              onClick={() => setSelectedProject(flagship)}
+            >
+              read case study →
+            </button>
+          </div>
+        </div>
       </div>
 
-      {/* ── TABS ── */}
-      <div className="board-tabs">
-        {[
-          ['all',       `all_projects (${projects.length})`],
-          ['completed', `completed (${projects.filter(p => p.status === 'Completed').length})`],
-          ['active',    `in_progress (${projects.filter(p => p.status !== 'Completed').length})`],
-        ].map(([key, label]) => (
-          <button
-            key={key}
-            className={`board-tab ${activeTab === key ? 'active' : ''}`}
-            onClick={() => setActiveTab(key)}
-          >
-            {label}
-          </button>
-        ))}
+      {/* ── OTHER PROJECTS ── */}
+      <div className="board-section-head">
+        <p className="board-section-mono">// other projects ({projects.length})</p>
+        <div className="board-tabs">
+          {[
+            ['all',       `all (${projects.length})`],
+            ['completed', `completed (${projects.filter(p => p.status === 'Completed').length})`],
+            ['active',    `in_progress (${projects.filter(p => p.status !== 'Completed').length})`],
+          ].map(([key, label]) => (
+            <button
+              key={key}
+              className={`board-tab ${activeTab === key ? 'active' : ''}`}
+              onClick={() => setActiveTab(key)}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* ── PROJECT GRID ── */}
@@ -184,7 +283,7 @@ function Board() {
         {filteredProjects.map((project) => (
           <div
             key={project.id}
-            className={`project-card ${project.highlight ? 'project-card--highlight' : ''}`}
+            className="project-card"
             onClick={() => setSelectedProject(project)}
           >
             <div className="pc-top">
@@ -217,7 +316,7 @@ function Board() {
 
             <div className="pc-footer">
               <span className="pc-type">{project.type}</span>
-              <span className="pc-cta">view_details →</span>
+              <span className="pc-cta">view →</span>
             </div>
           </div>
         ))}
@@ -273,11 +372,6 @@ function Board() {
                 </div>
               </div>
 
-              <div className="modal-meta">
-                <span className="modal-badge">{selectedProject.level}</span>
-                <span className="modal-badge modal-badge--muted">{selectedProject.type}</span>
-              </div>
-
               <div className="modal-actions">
                 {selectedProject.liveUrl ? (
                   <a href={selectedProject.liveUrl} target="_blank" rel="noopener noreferrer" className="modal-btn modal-btn--primary">
@@ -308,8 +402,8 @@ function Board() {
               {[
                 { label: 'email',    value: contactInfo.email,  href: `mailto:${contactInfo.email}`,  copy: true },
                 { label: 'phone',    value: contactInfo.phone,  href: `tel:${contactInfo.phone}`,     copy: true },
-                { label: 'linkedin', value: 'view_profile →',   href: contactInfo.linkedin                       },
-                { label: 'github',   value: 'view_projects →',  href: contactInfo.github                         },
+                { label: 'linkedin', value: 'view_profile →',   href: contactInfo.linkedin },
+                { label: 'github',   value: 'view_projects →',  href: contactInfo.github },
               ].map((item, i) => (
                 <div key={i} className="contact-item">
                   <span className="contact-label">{item.label}</span>
