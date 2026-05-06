@@ -89,14 +89,11 @@ function AnimatedBar({ level, color, animated }) {
 
 function SkillCard({ skill, animated, index }) {
   const Icon = skill.icon;
-  const [hovered, setHovered] = useState(false);
 
   return (
     <div
       className={`ar-skill-card ${animated ? 'ar-skill-card--visible' : ''}`}
       style={{ animationDelay: `${index * 0.06}s` }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
     >
       <div className="ar-skill-top">
         <div className="ar-skill-icon-wrap" style={{ '--skill-color': skill.color }}>
