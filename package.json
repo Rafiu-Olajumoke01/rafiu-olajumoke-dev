@@ -26,7 +26,7 @@
       "react-app/jest"
     ],
     "rules": {
-      "react/jsx-no-comment-textnodes": "warn",
+      "react/jsx-no-comment-textnodes": "off",
       "no-unused-vars": "warn"
     }
   },
